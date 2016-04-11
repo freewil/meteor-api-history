@@ -1,15 +1,32 @@
 <head>
-  <title>simple</title>
+  <title>API History</title>
 </head>
 
 <body>
-  <h1>Welcome to Meteor!</h1>
-
-  {{> hello}}
-  {{> info}}
+  <h1>API History</h1>
+  <table>
+    <tr>
+      <th>Timestamp</th>
+      <th>Client</th>
+      <th>Endpoint</th>
+      <th>Result</th>
+    </tr>
+    {{#each apiHistoryRecords}}
+      {{> apiHistoryRecord}}
+    {{/each}}
+  </table>
 </body>
 
-<template name="hello">
+<template name="apiHistoryRecord">
+  <tr>
+    <td>{{timestamp}}</td>
+    <td>{{client}}</td>
+    <td>{{endpoint}}</td>
+    <td>{{result}}</td>
+  </tr>
+</template>
+
+<!-- <template name="hello">
   <button>Click Me</button>
   <p>You've pressed the button {{counter}} times.</p>
 </template>
@@ -22,4 +39,4 @@
     <li><a href="https://docs.meteor.com">Read the Docs</a></li>
     <li><a href="https://forums.meteor.com">Discussions</a></li>
   </ul>
-</template>
+</template> -->
