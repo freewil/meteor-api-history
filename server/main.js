@@ -20,7 +20,7 @@ const seedApiHistory = (n) => {
 
 // seed database with 1000 api history entries on startup
 Meteor.startup(() => {
-  console.error('Seeding Api History...');
-  seedApiHistory(1000);
-  console.error('Database seed complete');
+  // console.error('Seeding Api History...');
+  // seedApiHistory(100);
+  // console.error('Database seed complete');
 });

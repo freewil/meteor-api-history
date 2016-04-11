@@ -11,6 +11,7 @@
       <th>Endpoint</th>
       <th>Result</th>
     </tr>
+    {{> apiHistoryNew}}
     {{#each apiHistoryRecords}}
       {{> apiHistoryRecord}}
     {{/each}}
@@ -23,6 +24,18 @@
     <td>{{client}}</td>
     <td>{{endpoint}}</td>
     <td>{{result}}</td>
+  </tr>
+</template>
+
+<template name="apiHistoryNew">
+  <tr>
+    <td>&nbsp;</td>
+    <td><input type="text" name="client"></td>
+    <td><input type="text" name="endpoint"></td>
+    <td>
+      <input type="text" name="result">
+      <button class="addHistory">Add</button>
+    </td>
   </tr>
 </template>
 
