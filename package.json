@@ -2,6 +2,8 @@
   "name": "meteor-api-history",
   "private": true,
   "scripts": {
+    "clean": "node private/clean.js",
+    "seed": "node private/seed.js",
     "start": "meteor run"
   },
   "dependencies": {

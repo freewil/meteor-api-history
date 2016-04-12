@@ -2,14 +2,17 @@ import { Template } from 'meteor/templating';
 import { ReactiveVar } from 'meteor/reactive-var';
 import { Mongo } from 'meteor/mongo';
 
-const ApiHistory = new Mongo.Collection('api_history');
+const ApiHistoryRecent = new Mongo.Collection('apiHistoryRecent');
 
 import './main.html';
 
+// subscribed to the most recent api calls
+Meteor.subscribe('apiHistoryRecent');
+
 Template.body.helpers({
-  // get the 10 most recent api history records
-  apiHistoryRecords() {
-    return ApiHistory.find({}, {sort: {timestamp: -1}, limit: 10});
+  // get all the records that have been subscribed to
+  recentApiHistory() {
+    return ApiHistoryRecent.find({}, {sort: {timestamp: -1}});
   }
 });
 
@@ -26,9 +29,21 @@ Template.apiHistoryNew.events({
     apiHistory.timestamp = new Date();
 
     // insert api history record
-    ApiHistory.insert(apiHistory);
+    // ApiHistory.insert(apiHistory);
+    Meteor.call('addApiHistory', apiHistory)
 
     // clear values of inputs
     $inputs.val('');
+  }
+});
+
+Template.loadMoreHistory.onCreated(function() {
+  this.offset = 0
+});
+
+Template.loadMoreHistory.events({
+  'click button.loadMore'(event, instance) {
+    instance.offset += 50;
+    Meteor.call('loadApiHistory', instance.offset);
   }
 });

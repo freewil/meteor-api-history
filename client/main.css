@@ -3,3 +3,12 @@ table, td, th {
   border-collapse: collapse;
   padding: 5px;
 }
+
+button.loadMore {
+  display: inline-block;
+  width: 100%;
+  padding: 10px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  font-size: 2em;
+}
