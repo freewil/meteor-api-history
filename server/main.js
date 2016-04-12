@@ -53,6 +53,7 @@ Meteor.methods({
    * Allow client to create a new API history record.
    */
   addApiHistory: (apiHistory) => {
+    //TODO: input validate apiHistory
     // make sure time is at least 1 min since most recent record
     var last = ApiHistory.findOne({}, {sort: {timestamp: -1}});
     if (last) {
@@ -72,6 +73,7 @@ Meteor.methods({
    * Loads more api call history records into virtual `apiHistoryRecent` collection.
    */
   loadApiHistory: (offset) => {
+    //TODO: input validate offset
     getHistory(offset).fetch().forEach((record) => {
       apiHistoryRecent.added('apiHistoryRecent', record._id, record);
     });
