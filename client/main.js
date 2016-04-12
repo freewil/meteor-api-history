@@ -28,7 +28,6 @@ Template.apiHistoryNew.events({
     });
 
     // insert api history record
-    // ApiHistory.insert(apiHistory);
     Meteor.call('addApiHistory', apiHistory)
 
     // clear values of inputs

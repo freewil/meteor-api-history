@@ -1,12 +1,23 @@
 {
   "name": "meteor-api-history",
   "private": true,
+  "author": "Sean Lavine <lavis88@gmail.com>",
   "scripts": {
-    "clean": "node private/clean.js",
-    "seed": "node private/seed.js",
     "start": "meteor run"
   },
   "dependencies": {
     "meteor-node-stubs": "~0.2.0"
-  }
+  },
+  "description": "Code challenge that logs history to a fictional REST API (not actually implemented) and displays it to the user using Meteor.",
+  "version": "0.0.0",
+  "devDependencies": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/freewil/meteor-api-history.git"
+  },
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/freewil/meteor-api-history/issues"
+  },
+  "homepage": "https://github.com/freewil/meteor-api-history#readme"
 }
