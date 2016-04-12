@@ -26,7 +26,6 @@ Template.apiHistoryNew.events({
     $inputs.each((i, input) => {
       apiHistory[input.name] = input.value
     });
-    apiHistory.timestamp = new Date();
 
     // insert api history record
     // ApiHistory.insert(apiHistory);
@@ -42,6 +41,7 @@ Template.loadMoreHistory.onCreated(function() {
 });
 
 Template.loadMoreHistory.events({
+  // load 50 more history records
   'click button.loadMore'(event, instance) {
     instance.offset += 50;
     Meteor.call('loadApiHistory', instance.offset);
